@@ -9,19 +9,26 @@ import {Chart} from 'chart.js';
 import { registerables } from 'chart.js';
 import { MultiBarColumnComponent } from './multi-bar-column/multi-bar-column.component';
 import { StreamsDataComponent } from './streams-data/streams-data.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+
+
 
 Chart.register(...registerables);
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChartDemoComponent,
     MultiBarColumnComponent,
-    StreamsDataComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StreamsDataComponent,
+    HttpClientModule,
+    ChartDemoComponent,
+    PieChartComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

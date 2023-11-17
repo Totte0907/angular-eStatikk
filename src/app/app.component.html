@@ -8,7 +8,7 @@
   <style>
     body {
       background-color: #333; /* Dunkelgrau als Grundfarbe */
-      color: #fff; /* Weiße Schriftfarbe für bessere Lesbarkeit */
+      color: #e0e0e0; /* Weiße Schriftfarbe für bessere Lesbarkeit */
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -39,6 +39,28 @@
     #activity-feed li {
       margin-bottom: 10px;
     }
+
+    #chart{
+      float: left;
+      width: 60%;
+      padding: 20px;
+    }
+
+    #chart h2{
+      color: #ffa500;
+    }
+
+    #pie-chart{
+      float: left;
+      width: 30%;
+      margin-top: 530px;
+      padding: 20px;
+    }
+
+    #pie-chart h2{
+      color: #ffa500;
+    }
+
   </style>
 </head>
 <body>
@@ -49,6 +71,14 @@
   <div id="activity-feed">
     <h2>Feed</h2>
     <app-streams-data></app-streams-data>
+  </div>
+  <div id="chart">
+    <h2>Top LoL Streams in Sprachen aufgeteilt:</h2>
+  <app-chart-demo></app-chart-demo>
+  </div>
+  <div id="pie-chart">
+    <h2>Dota vs LoL</h2>
+   <app-pie-chart></app-pie-chart>
   </div>
 </body>
 </html>

@@ -18,7 +18,7 @@ export class MultiBarColumnComponent {
       this.chartDatalabels.push('12.11.');
       this.chartDatalabels.push('13.11.');
   
-      this.ctx = document.getElementById('myChart');
+      this.ctx = document.getElementById('myChart1');
 
       this.config = {
         type : 'bar',
@@ -27,23 +27,17 @@ export class MultiBarColumnComponent {
           datasets : [{ 
             label: 'Riot Games',
             data: [8,2,3],
-            borderWidth: 5,
-            borderColor: ['rgb(135,201,28)', 'rgb(212,22,222)','rgb(22,216,223)'],
-            backgroundColor:['rgb(135,201,28)', 'rgb(212,22,222)','rgb(22,216,223)']
+            backgroundColor:['rgb(135,201,28)']
           },
           { 
             label: 'Summoners Inn',
             data: [5,4,6],
-            borderWidth: 5,
-            borderColor: ['rgb(135,201,28)', 'rgb(212,22,222)','rgb(22,216,223)'],
-            backgroundColor: ['rgb(135,201,28)', 'rgb(212,22,222)','rgb(22,216,223)']
+            backgroundColor: ['rgb(212,22,222)']
           },
         { 
           label: 'Tolkin',
           data: [8,5,9],
-          borderWidth: 5,
-          borderColor: ['rgb(135,201,28)', 'rgb(212,22,222)','rgb(22,216,223)'],
-          backgroundColor: ['rgb(135,201,28)', 'rgb(212,22,222)','rgb(22,216,223)']
+          backgroundColor: ['rgb(22,216,223)']
         }
       ],
         options : {
@@ -62,8 +56,8 @@ export class MultiBarColumnComponent {
         }
         }
       }
-      const myChart = new Chart(this.ctx, this.config);
+      const myChart1 = new Chart(this.ctx, this.config);
     }
-
+    
 
 }
