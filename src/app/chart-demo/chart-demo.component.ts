@@ -43,12 +43,13 @@ export class ChartDemoComponent implements OnInit {
           data: {
             labels: this.chartDatalabels,
             datasets: [{
-              label: 'Anzahl der Zuschauer',
+              label: 'League of Legends',
               data: this.chartData,
               backgroundColor: '#ff8600',
             }],
           },
           options:{
+            indexAxis: 'x',
             scales: {
               x: {
                 title: {

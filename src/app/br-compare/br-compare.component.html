@@ -31,7 +31,7 @@
     #activity-feed,
     #pie-chart
     {
-      width: 50%;
+      width: 80%;
       padding: 40px;
       background-color: #202020;
       color: #ffa500;
@@ -50,16 +50,19 @@
 </style>
 </head>
 <body>
-  <div id="dashboard" (click)="navigateTo('/')">
-    <h1>eStatikk Dashboard</h1>
-    <img class="logo" src="assets/Logo_eStatikk.png">
+  <div id="content-container">
+    <div id="activity-feed">
+      <h2>Feed - Aktuelle Top Streamer:</h2>
+      <app-br-feed-data></app-br-feed-data>
+    </div>
+    <div id="pie-chart">
+      <h2>Zuschauerverteilung</h2>
+      <app-pie-chart [genre]="brParameter"></app-pie-chart>
+    </div>
   </div>
-  <div>
-    <button (click)="navigateTo('moba')">Moba</button>
-    <button (click)="navigateTo('shooter')">Shooter</button>
-    <button (click)="navigateTo('br')">Battle Royale</button>
-    <router-outlet></router-outlet>
+  <div id="chart">
+    <h2>Zuschauerverteilung nach Sprachen</h2>
+   <app-chart-demo></app-chart-demo>
   </div>
-  
 </body>
 </html>
