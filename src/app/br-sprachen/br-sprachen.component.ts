@@ -6,25 +6,28 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-multi-bar-column',
+  selector: 'app-br-sprachen',
   standalone: true,
   imports: [CommonModule, RouterOutlet, HttpClientModule],
-  templateUrl: './multi-bar-column.component.html',
-  styleUrls: ['./multi-bar-column.component.css']
+  templateUrl: './br-sprachen.component.html',
+  styleUrls: ['./br-sprachen.component.css']
 })
-export class MultiBarColumnComponent implements OnInit {
+export class BrSprachenComponent implements OnInit {
 
   ctx: any;
   config: any;
   chartDatalabels: any[] = [];
-  lolData: any[] = [];
-  dota2Data: any[] = [];
+  wzData: any[] = [];
+  fnData: any[] = [];
+  pubgData: any[] = [];
 
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.getData('League of Legends');
-    this.getData('Dota 2');
+    this.getData('Call of Duty: Warzone');
+    this.getData('Fortnite');
+    this.getData('PUBG: BATTLEGROUNDS');
+
   }
 
   createChart(): void {
@@ -34,15 +37,20 @@ export class MultiBarColumnComponent implements OnInit {
       data: {
         labels: this.chartDatalabels,
         datasets: [{
-          label: 'League of Legends',
-          data: this.lolData,
-          backgroundColor: ['rgb(135,201,28)']
+          label: 'Call of Duty: Warzone',
+          data: this.wzData,
+          backgroundColor: ['rgb(143,143,143)']
         },
       {
-        label: 'Dota 2',
-        data: this.dota2Data,
-        backgroundColor: ['rgb(22,158,64']
-      }],
+        label: 'Fortnite',
+        data: this.fnData,
+        backgroundColor: ['rgb(255,134,0)']
+      },
+    {
+      label: 'PUBG: BATTLEGROUNDS',
+      data: this.pubgData,
+      backgroundColor: ['rgb(92,92,92)']
+    }],
         options: {
           indexAxis: 'x',
           scales: {
@@ -80,21 +88,23 @@ export class MultiBarColumnComponent implements OnInit {
     this.httpClient.get<any>(`http://127.0.0.1:5000/get_viewercount_per_language_by_game/${encodeURIComponent(game)}`).subscribe(
       (response: { viewercount: number; l: string; }[]) => {
         console.log(response);
-        if (game == 'League of Legends') {
-          this.lolData = [];
+        if (game == 'Call of Duty: Warzone') {
+          this.wzData = [];
           this.chartDatalabels = [];
           response.forEach((entry: { viewercount: number; l: string; }) => {
-            this.lolData.push(entry.viewercount);
+            this.wzData.push(entry.viewercount);
             this.chartDatalabels.push(entry.l);
           });
-        } else if (game == 'Dota 2') {
+        } else if (game == 'Fortnite') {
           response.forEach((entry: { viewercount: number; l: string; }) => {
-            this.dota2Data.push(entry.viewercount);
+            this.fnData.push(entry.viewercount);
           });
-          this.createChart();
+        } else if(game=='PUBG: BATTLEGROUNDS'){
+          response.forEach((entry: { viewercount: number; l: string;}) => {
+            this.pubgData.push(entry.viewercount);
+          });this.createChart();
         }
       }
     );
   }
-  
 }
