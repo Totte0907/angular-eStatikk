@@ -38,40 +38,41 @@ export class MobaSprachenComponent implements OnInit {
           data: this.lolData,
           backgroundColor: ['rgb(225,134,0)']
         },
-      {
-        label: 'Dota 2',
-        data: this.dota2Data,
-        backgroundColor: ['rgb(143,143,143)']
-      }],
-        options: {
-          indexAxis: 'x',
-          scales: {
-            x: {
-              title: {
-                color: '#e0e0e0',
-              },
-              ticks: {
-                color: '#e0e0e0'
-              }
+        {
+          label: 'Dota 2',
+          data: this.dota2Data,
+          backgroundColor: ['rgb(143,143,143)']
+        },],
+      },
+      options: {
+        indexAxis: 'y',
+        scales: {
+          x: {
+            title: {
+              color: '#e0e0e0',
             },
-            y: {
-              title: {
-                color: '#e0e0e0'
-              },
-              ticks: {
-                color: '#e0e0e0'
-              }
+            ticks: {
+              color: '#e0e0e0'
             }
           },
-          plugins: {
-            legend: {
-              labels: {
-                color: '#e0e0e0'
-              }
+          y: {
+            title: {
+              color: '#e0e0e0'
+            },
+            ticks: {
+              color: '#e0e0e0'
             }
-          }
+          },
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#e0e0e0'
+            },
+          },
         }
-      }
+      },
+
     };
     const myChart1 = new Chart(this.ctx, this.config);
   }
@@ -96,5 +97,5 @@ export class MobaSprachenComponent implements OnInit {
       }
     );
   }
-  
+
 }

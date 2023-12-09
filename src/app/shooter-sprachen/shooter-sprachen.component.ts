@@ -41,45 +41,46 @@ export class ShooterSprachenComponent implements OnInit {
           data: this.csgoData,
           backgroundColor: ['rgb(143,143,143)']
         },
-      {
-        label: 'Valorant',
-        data: this.valoData,
-        backgroundColor: ['rgb(92,92,92)']
+        {
+          label: 'Valorant',
+          data: this.valoData,
+          backgroundColor: ['rgb(92,92,92)']
+        },
+        {
+          label: 'Overwatch 2',
+          data: this.ow2Data,
+          backgroundColor: ['rgb(255,134,0)']
+        }],
       },
-    {
-      label: 'Overwatch 2',
-      data: this.ow2Data,
-      backgroundColor: ['rgb(255,134,0)']
-    }],
-        options: {
-          indexAxis: 'x',
-          scales: {
-            x: {
-              title: {
-                color: '#e0e0e0',
-              },
-              ticks: {
-                color: '#e0e0e0'
-              }
+      options: {
+        indexAxis: 'y',
+        scales: {
+          x: {
+            title: {
+              color: '#e0e0e0',
             },
-            y: {
-              title: {
-                color: '#e0e0e0'
-              },
-              ticks: {
-                color: '#e0e0e0'
-              }
+            ticks: {
+              color: '#e0e0e0'
             }
           },
-          plugins: {
-            legend: {
-              labels: {
-                color: '#e0e0e0'
-              }
+          y: {
+            title: {
+              color: '#e0e0e0'
+            },
+            ticks: {
+              color: '#e0e0e0'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#e0e0e0'
             }
           }
         }
       }
+
     };
     const myChart1 = new Chart(this.ctx, this.config);
   }
@@ -99,13 +100,13 @@ export class ShooterSprachenComponent implements OnInit {
           response.forEach((entry: { viewercount: number; l: string; }) => {
             this.valoData.push(entry.viewercount);
           });
-        } else if(game=='Overwatch 2'){
-          response.forEach((entry: { viewercount: number; l: string;}) => {
+        } else if (game == 'Overwatch 2') {
+          response.forEach((entry: { viewercount: number; l: string; }) => {
             this.ow2Data.push(entry.viewercount);
-          });this.createChart();
+          }); this.createChart();
         }
       }
     );
   }
-  
+
 }

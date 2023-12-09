@@ -31,48 +31,50 @@ export class MultiBarColumnComponent implements OnInit {
     this.ctx = document.getElementById('myChart1');
     this.config = {
       type: 'bar',
-      data: {
-        labels: this.chartDatalabels,
-        datasets: [{
-          label: 'League of Legends',
-          data: this.lolData,
-          backgroundColor: ['rgb(135,201,28)']
-        },
+  data: {
+    labels: this.chartDatalabels,
+    datasets: [
+      {
+        label: 'League of Legends',
+        data: this.lolData,
+        backgroundColor: ['rgb(135,201,28)'],
+      },
       {
         label: 'Dota 2',
         data: this.dota2Data,
-        backgroundColor: ['rgb(22,158,64']
-      }],
-        options: {
-          indexAxis: 'x',
-          scales: {
-            x: {
-              title: {
-                color: '#e0e0e0',
-              },
-              ticks: {
-                color: '#e0e0e0'
-              }
-            },
-            y: {
-              title: {
-                color: '#e0e0e0'
-              },
-              ticks: {
-                color: '#e0e0e0'
-              }
-            }
-          },
-          plugins: {
-            legend: {
-              labels: {
-                color: '#e0e0e0'
-              }
-            }
-          }
-        }
-      }
-    };
+        backgroundColor: ['rgb(22,158,64)'],
+      },
+    ],
+  },
+  options: {
+    indexAxis: 'x',
+    scales: {
+      x: {
+        title: {
+          color: '#e0e0e0',
+        },
+        ticks: {
+          color: '#e0e0e0',
+        },
+      },
+      y: {
+        title: {
+          color: '#e0e0e0',
+        },
+        ticks: {
+          color: '#e0e0e0',
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: '#e0e0e0',
+        },
+      },
+    },
+  },
+};
     const myChart1 = new Chart(this.ctx, this.config);
   }
 
@@ -96,5 +98,5 @@ export class MultiBarColumnComponent implements OnInit {
       }
     );
   }
-  
+
 }

@@ -41,45 +41,46 @@ export class BrSprachenComponent implements OnInit {
           data: this.wzData,
           backgroundColor: ['rgb(143,143,143)']
         },
-      {
-        label: 'Fortnite',
-        data: this.fnData,
-        backgroundColor: ['rgb(255,134,0)']
+        {
+          label: 'Fortnite',
+          data: this.fnData,
+          backgroundColor: ['rgb(255,134,0)']
+        },
+        {
+          label: 'PUBG: BATTLEGROUNDS',
+          data: this.pubgData,
+          backgroundColor: ['rgb(92,92,92)']
+        }],
       },
-    {
-      label: 'PUBG: BATTLEGROUNDS',
-      data: this.pubgData,
-      backgroundColor: ['rgb(92,92,92)']
-    }],
-        options: {
-          indexAxis: 'x',
-          scales: {
-            x: {
-              title: {
-                color: '#e0e0e0',
-              },
-              ticks: {
-                color: '#e0e0e0'
-              }
+      options: {
+        indexAxis: 'y',
+        scales: {
+          x: {
+            title: {
+              color: '#e0e0e0',
             },
-            y: {
-              title: {
-                color: '#e0e0e0'
-              },
-              ticks: {
-                color: '#e0e0e0'
-              }
+            ticks: {
+              color: '#e0e0e0'
             }
           },
-          plugins: {
-            legend: {
-              labels: {
-                color: '#e0e0e0'
-              }
+          y: {
+            title: {
+              color: '#e0e0e0'
+            },
+            ticks: {
+              color: '#e0e0e0'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#e0e0e0'
             }
           }
         }
       }
+
     };
     const myChart1 = new Chart(this.ctx, this.config);
   }
@@ -99,10 +100,10 @@ export class BrSprachenComponent implements OnInit {
           response.forEach((entry: { viewercount: number; l: string; }) => {
             this.fnData.push(entry.viewercount);
           });
-        } else if(game=='PUBG: BATTLEGROUNDS'){
-          response.forEach((entry: { viewercount: number; l: string;}) => {
+        } else if (game == 'PUBG: BATTLEGROUNDS') {
+          response.forEach((entry: { viewercount: number; l: string; }) => {
             this.pubgData.push(entry.viewercount);
-          });this.createChart();
+          }); this.createChart();
         }
       }
     );
